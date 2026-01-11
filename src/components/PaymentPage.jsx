@@ -5,7 +5,7 @@ import axios from 'axios';
 const API_KEY = process.env.REACT_APP_API_KEY || 'pk_1696f0e8afb658232ff78d2043ae32392c0ced639e8f5f8f';
 const MERCHANT_ID = process.env.REACT_APP_MERCHANT_ID || '690fef3ee9d765d23af00602';
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3000';
-const PAYMENT_AMOUNT = 10000;
+const PAYMENT_AMOUNT = 50;
 
 export default function PaymentPage() {
   const [phoneSuffix, setPhoneSuffix] = useState('');
