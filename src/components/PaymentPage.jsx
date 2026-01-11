@@ -5,7 +5,7 @@ import axios from 'axios';
 const API_KEY = process.env.REACT_APP_API_KEY || 'pk_1696f0e8afb658232ff78d2043ae32392c0ced639e8f5f8f';
 const MERCHANT_ID = process.env.REACT_APP_MERCHANT_ID || '690fef3ee9d765d23af00602';
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3000';
-const PAYMENT_AMOUNT = 10000; // Montant fixe
+const PAYMENT_AMOUNT = 10000;
 
 export default function PaymentPage() {
   const [phoneSuffix, setPhoneSuffix] = useState('');
@@ -29,7 +29,6 @@ export default function PaymentPage() {
     setMessage('💳 Paiement en cours...');
 
     try {
-      // ✅ Appel à votre backend PayUnit
       const url = `${BACKEND_URL}/api/payment/initialize`;
 
       console.log('🔄 Envoi vers:', url);
@@ -98,7 +97,7 @@ export default function PaymentPage() {
               value="orange"
               checked={paymentMethod === 'orange'}
               onChange={() => setPaymentMethod('orange')}
-              style={{ marginRight: '10px', accentColor: '#FF6600' }}
+              style={{ marginRight: '10px' }}
             />
             Orange Money
           </label>
@@ -110,7 +109,7 @@ export default function PaymentPage() {
               value="mtn"
               checked={paymentMethod === 'mtn'}
               onChange={() => setPaymentMethod('mtn')}
-              style={{ marginRight: '10px', accentColor: '#FFD700' }}
+              style={{ marginRight: '10px' }}
             />
             Mobile Money MTN
           </label>
@@ -170,7 +169,7 @@ const styles = {
     fontFamily: "'Poppins', Arial, sans-serif",
     background: 'linear-gradient(to bottom right, #e8f0ff, #f9fbff)',
     margin: 0,
-    padding: '20px',
+    padding: 0,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -182,7 +181,7 @@ const styles = {
     borderRadius: '14px',
     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
     maxWidth: '400px',
-    width: '100%'
+    width: '90%'
   },
   title: {
     textAlign: 'center',
@@ -195,17 +194,17 @@ const styles = {
   },
   amount: {
     textAlign: 'center',
-    fontSize: '32px',
-    fontWeight: '700',
-    color: '#FF6600',
-    marginBottom: '15px'
+    fontSize: '24px',
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: '10px'
   },
   description: {
     textAlign: 'center',
-    color: '#666',
-    fontSize: '14px',
+    color: '#555',
+    fontSize: '15px',
     marginBottom: '25px',
-    lineHeight: '1.6'
+    lineHeight: '1.5'
   },
   paymentMethods: {
     marginBottom: '20px'
@@ -215,60 +214,53 @@ const styles = {
     marginTop: '20px',
     fontWeight: '600',
     color: '#333',
-    marginBottom: '10px',
-    fontSize: '14px'
+    marginBottom: '8px'
   },
   phoneWrapper: {
     display: 'flex',
     alignItems: 'center',
-    border: '2px solid #ddd',
+    border: '1px solid #ccc',
     borderRadius: '8px',
-    overflow: 'hidden',
-    marginBottom: '20px'
+    overflow: 'hidden'
   },
   prefix: {
-    backgroundColor: '#f0f0f0',
-    color: '#333',
-    padding: '12px 15px',
+    backgroundColor: '#eef3ff',
+    color: '#004aad',
+    padding: '10px 12px',
     fontWeight: '600',
-    fontSize: '15px',
-    minWidth: '60px'
+    fontSize: '15px'
   },
   input: {
     flex: 1,
-    padding: '12px',
+    padding: '10px',
     border: 'none',
     fontSize: '16px',
     outline: 'none'
   },
   button: {
     width: '100%',
-    backgroundColor: '#FF6600',
+    backgroundColor: '#007bff',
     color: 'white',
     border: 'none',
     padding: '15px',
-    borderRadius: '8px',
-    fontSize: '16px',
-    fontWeight: '600',
+    borderRadius: '10px',
+    fontSize: '18px',
     cursor: 'pointer',
-    transition: 'background-color 0.3s'
+    marginTop: '25px',
+    fontWeight: '600'
   },
   success: {
-    backgroundColor: '#d4edda',
-    color: '#155724',
-    padding: '12px',
-    borderRadius: '6px',
-    marginTop: '15px',
     textAlign: 'center',
-    border: '1px solid #c3e6cb'
+    fontSize: '16px',
+    fontWeight: 'bold',
+    marginTop: '20px',
+    color: 'green'
   },
   error: {
-    backgroundColor: '#f8d7da',
-    color: '#721c24',
-    padding: '12px',
-    borderRadius: '6px',
-    marginTop: '15px',
     textAlign: 'center',
-    border: '1px solid #f5c6cb'
+    fontSize: '16px',
+    fontWeight: 'bold',
+    marginTop: '20px',
+    color: 'red'
   }
 };
